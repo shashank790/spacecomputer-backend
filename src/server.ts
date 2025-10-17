@@ -32,8 +32,8 @@ app.post("/verify-signal", async (req, res) => {
 app.get("/verify-signal", (req, res) => {
   const exampleCurl = `To test this endpoint, open a terminal and run:
 
-curl -X POST http://localhost:3000/verify-signal \\
-  -H "Content-Type: application/json" \\
+curl -X POST http://localhost:3000/verify-signal \
+  -H "Content-Type: application/json" \
   -d '{
     "publicKey": "abc123",
     "data": "hello world",
@@ -43,8 +43,8 @@ curl -X POST http://localhost:3000/verify-signal \\
 Replace 'localhost:3000' with other hosted address if it's running elsewhere.
 i.e 
 
-curl -X POST https://spacecomputer-backend.onrender.com/verify-signal \\
-  -H "Content-Type: application/json" \\
+curl -X POST https://spacecomputer-backend.onrender.com/verify-signal \
+  -H "Content-Type: application/json" \
   -d '{
     "publicKey": "abc123",
     "data": "hello world",
@@ -69,7 +69,7 @@ app.get("/random", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("🚀 SpaceComputer backend is running!");
+    res.send("🚀 SpaceComputer backend is running! Visit /random and /verify-signal for active endpoints");
   });
 /**
  * Start the server

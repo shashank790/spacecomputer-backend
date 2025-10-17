@@ -89,7 +89,7 @@ This SDK securely connects to SpaceComputer’s global randomness network using 
  (publicKey, data, signature)
           ↓ sends via REST
    ┌───────────────────────────────┐
-   │        Our Backend           │
+   │        Our Backend            │
    │  (hosted e.g. on Render)      │
    ├───────────────────────────────┤
    │  /verify-signal endpoint      │

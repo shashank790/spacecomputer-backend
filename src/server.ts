@@ -1,6 +1,6 @@
 import express from "express";
 import { verifySignature } from "./services/cryptoService.js";
-import { randomBytes } from "crypto";
+import randomRoutes from "./routes/random.js";
 
 const app = express();
 app.use(express.json());
@@ -55,22 +55,16 @@ curl -X POST https://spacecomputer-backend.onrender.com/verify-signal \
   res.type("text").send(exampleCurl);
 });
 
+app.use("/random", randomRoutes);
 /**
- * GET /random
+ * GET /random/cosmic → SpaceComputer cosmic entropy
+ * GET /random/local - local cryptographic random bytes
  * Returns a cryptographically secure random number
  */
-app.get("/random", (req, res) => {
-  try {
-    const randomValue = randomBytes(32).toString("hex");
-    res.json({ random: randomValue });
-  } catch (err) {
-    res.status(500).json({ error: "Failed to generate randomness" });
-  }
-});
 
 app.get("/", (req, res) => {
-    res.send("🚀 SpaceComputer backend is running! Visit /random and /verify-signal for active endpoints");
-  });
+  res.send("🚀 SpaceComputer Backend Active — Endpoints: /verify-signal, /random/cosmic (Orbitport cosmic entropy), /random/local (crypto fallback)");
+});
 /**
  * Start the server
  */

@@ -226,7 +226,7 @@ app.get("/admin/list", (req, res) => {
               <th>Name</th>
               <th>Verified</th>
               <th>Created At</th>
-              <th>Updated At (Verified)</th>
+              <th>Updated At</th>
               <th>Actions (Edit Name or Delete Beacon)</th>
             </tr>
     `;

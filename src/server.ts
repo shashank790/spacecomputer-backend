@@ -226,7 +226,7 @@ app.get("/admin/list", (req, res) => {
               <th>Name</th>
               <th>Verified</th>
               <th>Created At</th>
-              <th>Updated At</th>
+              <th>Updated At (Verified)</th>
               <th>Actions (Edit Name or Delete Beacon)</th>
             </tr>
     `;
@@ -238,8 +238,8 @@ app.get("/admin/list", (req, res) => {
           <td>${row.publicKey}</td>
           <td>${row.name}</td>
           <td>${row.verified ? "✅ Yes" : "❌ No"}</td>
-          <td>${row.created_at}</td>
-          <td>${row.updated_at}</td>
+          <td>${new Date(row.created_at + "Z").toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</td>
+          <td>${new Date(row.updated_at + "Z").toLocaleString("en-US", { timeZone: "America/Los_Angeles" })}</td>
           <td>
             <!-- Edit form -->
             <form method="POST" action="/admin/edit" style="margin-right:4px;">
